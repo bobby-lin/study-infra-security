@@ -16,6 +16,7 @@ This is a collection of resources and notes that I have used while studying the 
 - [RHEL](os-app/rhel.md)
 - [AL2](os-app/al2.md)
 - [NGINX](os-app/nginx.md)
+- [Apache2 HTTPD](os-app/apache-httpd.md)
 
 ## Infrastructure as Code (IaC)
 #### Orchestration
