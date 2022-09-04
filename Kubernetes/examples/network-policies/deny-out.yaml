@@ -1,0 +1,16 @@
+# We want to deny all outgoing traffic from default namespace except DNS traffic on port 53 (TCP and UDP)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-out
+  namespace: default
+spec:
+  podSelector: {} # select all pods in the namespace
+  policyTypes:
+    - Egress
+  egress:
+    - ports:
+        - protocol: TCP
+          port: 53
+        - protocol: UDP
+          port: 53
