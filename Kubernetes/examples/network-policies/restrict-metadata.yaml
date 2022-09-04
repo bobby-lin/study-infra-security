@@ -1,0 +1,18 @@
+# Disallow all pods (labelled with trust=nope) in default namespaces to access the metadata server at 1.1.1.1
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: metadata-server
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      trust: nope
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - ipBlock:
+            cidr: 0.0.0.0/0 # Allow all ip range EXCEPT....
+            except:
+            - 1.1.1.1/32 # Except the metadata server ip range
