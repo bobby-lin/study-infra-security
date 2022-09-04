@@ -4,7 +4,7 @@ This is a collection of resources and notes that I have used while studying the 
 ---
 ## Container
 - [Docker](container/docker.md)
-- [Kubernetes](container/docker.md)
+- [Kubernetes](https://github.com/bobby-lin/study-infra-security/tree/main/Kubernetes)
 
 ## Cloud
 - [AWS](cloud/aws.md)
