@@ -1,0 +1,31 @@
+# Ingress resource pointing to two services (asia and europe)
+# The host is added to /etc/host:
+# 1. Get the ip of the node (k get no -owide)
+# 2. Add an entry to /etc/host: world.universe.mine [IP addr of node]
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: world
+  namespace: world
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: world.universe.mine
+    http:
+      paths:
+      - backend:
+          service:
+            name: asia
+            port:
+              number: 80
+        path: /asia
+        pathType: Prefix
+      - backend:
+          service:
+            name: europe
+            port:
+              number: 80
+        path: /europe
+        pathType: Prefix
