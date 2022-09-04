@@ -1,0 +1,36 @@
+# Generate a cert: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert.crt -subj "/CN=world.universe.mine/O=world.universe.mine"
+# Test: curl -kv https://world.universe.mine:30443/europe
+# The cert should be showing self-signed instead of the fake cert
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+  name: world
+  namespace: world
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: world.universe.mine
+    http:
+      paths:
+      - backend:
+          service:
+            name: europe
+            port:
+              number: 80
+        path: /europe
+        pathType: Prefix
+      - backend:
+          service:
+            name: asia
+            port:
+              number: 80
+        path: /asia
+        pathType: Prefix
+  tls:
+  - hosts:
+    - world.universe.mine
+    secretName: world-tls-secret
