@@ -7,9 +7,9 @@ This is a collection of resources and notes that I have used while studying the 
 - [Kubernetes](https://github.com/bobby-lin/study-infra-security/tree/main/Kubernetes)
 
 ## Cloud
-- [AWS](cloud/aws)
-- [Azure](cloud/azure.md)
-- [Google Cloud](cloud/google-cloud.md)
+- [AWS](cloud-security/aws)
+- [Azure](cloud-security/azure)
+- [Google Cloud](cloud-security/gcp)
 
 ## OS / Application Hardening
 - [Ubuntu](os-app/ubuntu.md)
