@@ -35,3 +35,6 @@ This is a collection of resources and notes that I have used while studying the 
 ## Network Security (Fundamentals)
 - [Firewall](ns/firewall.md)
 - [Intrusion Detection Systems](ns/ids.md)
+
+## Workload Protection
+- [eBPF](workload-protection/eBPF.md)
